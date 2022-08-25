@@ -55,26 +55,27 @@ struct BookListView: View {
     @Binding var bookList: [Book]
     
     var body: some View {
+        
             List {
-                ForEach(0..<bookList.count, id: \.self) { index in
-                    BookView(title: bookList[index].title, key: bookList[index].imageKey)
-                        .swipeActions(edge: .leading) {
-                            Button(role: .none) {
-                                bookList[index].status = status.read
-                                print(bookList)
-                            } label: {
-                                Label("Read", systemImage: "checkmark")
+                if (!bookList.isEmpty) {
+                    ForEach(0..<bookList.count, id: \.self) { index in
+                        BookView(title: bookList[index].title, key: bookList[index].imageKey)
+                            .swipeActions(edge: .leading) {
+                                Button(role: .none) {
+                                    bookList.remove(at: index)
+                                } label: {
+                                    Label("Read", systemImage: "checkmark")
+                                }
+                                .tint(.green)
                             }
-                            .tint(.green)
-                        }
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                bookList[index].status = status.abandoned
-                                print(bookList)
-                            } label: {
-                                Label("Remove", systemImage: "trash")
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    bookList.remove(at: index)
+                                } label: {
+                                    Label("Remove", systemImage: "trash")
+                                }
                             }
-                        }
+                    }
                 }
             }
             .listStyle(.carousel)
