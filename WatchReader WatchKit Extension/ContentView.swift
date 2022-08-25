@@ -62,10 +62,11 @@ struct ContentView: View {
 
 struct DetailView: View {
     @Binding var book: Book
+    @Binding var showDetail: Bool
     
     var body: some View {
         ScrollView {
-            HStack {
+            VStack {
                 AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(book.imageKey)-L.jpg"))  { image in
                     image
                         .resizable()
@@ -73,18 +74,26 @@ struct DetailView: View {
                     } placeholder: {
                         Color.secondary
                     }
-                    .frame(width: 75, height: 150, alignment: .leading)
-                VStack {
-                    Text("\(book.title)")
-                        .font(.custom("Baskerville", size: 20, relativeTo: .headline))
-                        .frame(alignment: .leading)
-                    ForEach(book.author, id: \.self) { author in
-                        Text("\(author) ")
-                    }
-                    RatingView(rating: $book.rating)
+                    .frame(maxWidth: 60, maxHeight: 120, alignment: .leading)
+                Text("\(book.title)")
+                    .font(.custom("Baskerville", size: 20, relativeTo: .headline))
+                    .frame(alignment: .leading)
+                ForEach(book.author, id: \.self) { author in
+                    Text("\(author) ")
+                        
+                }
+                .font(.custom("Baskerville", size: 16, relativeTo: .subheadline))
+                RatingView(rating: $book.rating)
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") {
+                    showDetail.toggle()
                 }
             }
         }
+        .navigationTitle("Details")
     }
 }
 
@@ -113,7 +122,7 @@ struct BookListView: View {
                                 }
                             }
                             .sheet(isPresented: $showDetail) {
-                                DetailView(book: $bookList[index])
+                                DetailView(book: $bookList[index], showDetail: $showDetail)
                             }
                             .onTapGesture {
                                 showDetail.toggle()
