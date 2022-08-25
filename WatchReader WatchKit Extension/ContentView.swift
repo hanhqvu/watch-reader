@@ -38,17 +38,16 @@ struct ContentView: View {
     @State private var showSearch: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
+        BookListView(bookList: $bookList)
+            .sheet(isPresented: $showSearch) {
+                SearchView(bookList: $bookList, showSearch: $showSearch)
+            }
+            .navigationTitle("WatchReader")
+            .toolbar{
                 Button("Add Book", action: {
                     showSearch = true
                 })
-                .sheet(isPresented: $showSearch) {
-                    SearchView(bookList: $bookList, showSearch: $showSearch)
-                }
-                BookListView(bookList: $bookList)
             }
-        }
     }
 }
 
@@ -56,7 +55,6 @@ struct BookListView: View {
     @Binding var bookList: [Book]
     
     var body: some View {
-        if (!bookList.isEmpty) {
             List {
                 ForEach(0..<bookList.count, id: \.self) { index in
                     BookView(title: bookList[index].title, key: bookList[index].imageKey)
@@ -80,9 +78,6 @@ struct BookListView: View {
                 }
             }
             .listStyle(.carousel)
-        } else {
-            Spacer()
-        }
     }
 }
 
@@ -95,16 +90,8 @@ struct SearchView: View {
     
     var body: some View {
             List {
-                TextField("Search with title", text: $search) {
-                }
-                .onSubmit {
-                    Task {
-                        await searchData()
-                    }
-                }
                 if (isLoading) {
-                    SkeletonView()
-                    SkeletonView()
+                    ProgressView("Loading")
                 } else {
                     ForEach(0..<searchResult.count, id: \.self) { index in
                         SearchItemView(title: searchResult[index].title, key: searchResult[index].key ?? "", bookList: $bookList)
@@ -119,17 +106,19 @@ struct SearchView: View {
                         showSearch = false
                     }
                 }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        search = ""
-                        searchResult = []
-                        showSearch = false
+                ToolbarItem(placement: .primaryAction) {
+                    TextField("Search with title", text: $search) {
+                    }
+                    .onSubmit {
+                        Task {
+                            await searchData()
+                        }
                     }
                 }
             }
             .listStyle(.carousel)
+            .navigationTitle("Search")
     }
-        
     
     func searchData() async {
         isLoading.toggle()
@@ -150,20 +139,6 @@ struct SearchView: View {
         }
     }
 }
-
-struct SkeletonView: View {
-    var body: some View {
-            HStack {
-                Spacer()
-                    .frame(width: 25, height: 50, alignment: .leading)
-                Text("place-holder-testing")
-                    .font(.custom("Baskerville", size: 14, relativeTo: .body))
-                    
-            }
-            .redacted(reason: .placeholder)
-            .padding(1)
-        }
-    }
 
 struct SearchItemView: View {
     let title: String
