@@ -80,6 +80,7 @@ struct BookListView: View {
                                 }
                             }
                     }
+                    .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
                 }
             }
             .listStyle(.carousel)
@@ -101,6 +102,7 @@ struct SearchView: View {
                     ForEach(0..<searchResult.count, id: \.self) { index in
                         SearchItemView(title: searchResult[index].title, key: searchResult[index].key ?? "", author: searchResult[index].author?[0] ?? "", bookList: $bookList)
                     }
+                    .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
                 }
             }
             .toolbar {
@@ -166,9 +168,11 @@ struct SearchItemView: View {
                     Text("\(title)")
                         .font(.custom("Baskerville", size: 14, relativeTo: .headline))
                         .frame(alignment: .leading)
+                        .foregroundColor(.black)
                     Text("\(author)")
                         .font(.custom("Baskerville", size: 10, relativeTo: .subheadline))
                         .frame(alignment: .leading)
+                        .foregroundColor(.black)
                 }
                 
                 if (!bookList.contains(where: { element in
@@ -209,6 +213,7 @@ struct BookView: View {
                     .frame(width: 50, height: 100, alignment: .leading)
                 Text("\(title)")
                     .font(.custom("Baskerville", size: 14, relativeTo: .body))
+                    .foregroundColor(.black)
         }
         .padding(1)
         .frame(maxWidth: .infinity)
