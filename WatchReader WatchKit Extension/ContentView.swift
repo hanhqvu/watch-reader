@@ -11,10 +11,12 @@ struct BookRes: Codable {
     enum CodingKeys: String, CodingKey {
         case title = "title"
         case key = "cover_edition_key"
+        case author = "author_name"
     }
     
     var title: String
     var key: String?
+    var author: [String]?
 }
 
 struct SearchRes: Codable {
@@ -95,7 +97,7 @@ struct SearchView: View {
                     ProgressView("Loading")
                 } else {
                     ForEach(0..<searchResult.count, id: \.self) { index in
-                        SearchItemView(title: searchResult[index].title, key: searchResult[index].key ?? "", bookList: $bookList)
+                        SearchItemView(title: searchResult[index].title, key: searchResult[index].key ?? "", author: searchResult[index].author?[0] ?? "", bookList: $bookList)
                     }
                 }
             }
@@ -144,6 +146,7 @@ struct SearchView: View {
 struct SearchItemView: View {
     let title: String
     let key: String
+    let author: String
     @Binding var bookList: [Book]
     
     var body: some View {
@@ -156,8 +159,15 @@ struct SearchItemView: View {
                         Color.secondary
                     }
                     .frame(width: 25, height: 50, alignment: .leading)
-                Text("\(title)")
-                    .font(.custom("Baskerville", size: 14, relativeTo: .body))
+                VStack {
+                    Text("\(title)")
+                        .font(.custom("Baskerville", size: 14, relativeTo: .headline))
+                        .frame(alignment: .leading)
+                    Text("\(author)")
+                        .font(.custom("Baskerville", size: 10, relativeTo: .subheadline))
+                        .frame(alignment: .leading)
+                }
+                
                 if (!bookList.contains(where: { element in
                     if element.imageKey == key {
                         return true
