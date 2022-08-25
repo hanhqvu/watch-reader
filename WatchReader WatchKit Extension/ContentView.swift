@@ -108,9 +108,9 @@ struct BookListView: View {
                         BookView(title: bookList[index].title, key: bookList[index].imageKey)
                             .swipeActions(edge: .leading) {
                                 Button(role: .none) {
-                                    bookList.remove(at: index)
+                                    showDetail.toggle()
                                 } label: {
-                                    Label("Read", systemImage: "checkmark")
+                                    Label("Read", systemImage: "ellipsis")
                                 }
                                 .tint(.green)
                             }
@@ -123,9 +123,6 @@ struct BookListView: View {
                             }
                             .sheet(isPresented: $showDetail) {
                                 DetailView(book: $bookList[index], showDetail: $showDetail)
-                            }
-                            .onTapGesture {
-                                showDetail.toggle()
                             }
                     }
                     .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
