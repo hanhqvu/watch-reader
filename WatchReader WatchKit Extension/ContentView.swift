@@ -10,12 +10,14 @@ import SwiftUI
 struct BookRes: Codable {
     enum CodingKeys: String, CodingKey {
         case title = "title"
-        case key = "cover_edition_key"
+        case id = "key"
+        case imageKey = "cover_edition_key"
         case author = "author_name"
     }
     
+    var id: String
     var title: String
-    var key: String?
+    var imageKey: String?
     var author: [String]?
 }
 
@@ -30,9 +32,12 @@ enum status {
 }
 
 struct Book {
+    let id: String
     let title: String
+    let author: [String]
     let imageKey: String
     var status: status
+    var rating: Int?
 }
 
 struct ContentView: View {
@@ -55,11 +60,38 @@ struct ContentView: View {
     }
 }
 
-struct BookListView: View {
-    @Binding var bookList: [Book]
+struct DetailView: View {
+    @Binding var book: Book
     
     var body: some View {
-        
+        ScrollView {
+            HStack {
+                AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(book.imageKey)-L.jpg"))  { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                    } placeholder: {
+                        Color.secondary
+                    }
+                    .frame(width: 75, height: 150, alignment: .leading)
+                VStack {
+                    Text("\(book.title)")
+                        .font(.custom("Baskerville", size: 20, relativeTo: .headline))
+                        .frame(alignment: .leading)
+                    ForEach(book.author, id: \.self) { author in
+                        Text("\(author) ")
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct BookListView: View {
+    @Binding var bookList: [Book]
+    @State var showDetail: Bool = false
+    
+    var body: some View {
             List {
                 if (!bookList.isEmpty) {
                     ForEach(0..<bookList.count, id: \.self) { index in
@@ -78,6 +110,12 @@ struct BookListView: View {
                                 } label: {
                                     Label("Remove", systemImage: "trash")
                                 }
+                            }
+                            .sheet(isPresented: $showDetail) {
+                                DetailView(book: $bookList[index])
+                            }
+                            .onTapGesture {
+                                showDetail.toggle()
                             }
                     }
                     .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
@@ -100,7 +138,7 @@ struct SearchView: View {
                     ProgressView("Loading")
                 } else {
                     ForEach(0..<searchResult.count, id: \.self) { index in
-                        SearchItemView(title: searchResult[index].title, key: searchResult[index].key ?? "", author: searchResult[index].author?[0] ?? "", bookList: $bookList)
+                        SearchItemView(id: searchResult[index].id, title: searchResult[index].title, imageKey: searchResult[index].imageKey ?? "", author: searchResult[index].author ?? [], bookList: $bookList)
                     }
                     .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
                 }
@@ -139,7 +177,7 @@ struct SearchView: View {
             let (data, _) = try await URLSession.shared.data(from: url)
             let search: SearchRes = try! JSONDecoder().decode(SearchRes.self, from: data)
             searchResult = search.docs.filter { book in
-                return book.key != nil
+                return book.imageKey != nil
             }
             isLoading.toggle()
         } catch {
@@ -149,14 +187,15 @@ struct SearchView: View {
 }
 
 struct SearchItemView: View {
+    let id: String
     let title: String
-    let key: String
-    let author: String
+    let imageKey: String
+    let author: [String]
     @Binding var bookList: [Book]
     
     var body: some View {
             HStack {
-                AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(key)-S.jpg"))  { image in
+                AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(imageKey)-S.jpg"))  { image in
                     image
                         .resizable()
                         .scaledToFit()
@@ -169,24 +208,24 @@ struct SearchItemView: View {
                         .font(.custom("Baskerville", size: 14, relativeTo: .headline))
                         .frame(alignment: .leading)
                         .foregroundColor(.black)
-                    Text("\(author)")
+                    Text("\(author[0])")
                         .font(.custom("Baskerville", size: 10, relativeTo: .subheadline))
                         .frame(alignment: .leading)
                         .foregroundColor(.black)
                 }
                 
                 if (!bookList.contains(where: { element in
-                    if element.imageKey == key {
+                    if element.id == id {
                         return true
                     } else {
                         return false
                     }
                 })) {
-                    Button(action: {
-                        bookList.append(Book(title: title, imageKey: key, status: status.reading))
-                    }, label: {
-                        Image(systemName: "plus")
-                    })
+                    Button(role: .none) {
+                        bookList.append(Book(id: id, title: title, author: author, imageKey: imageKey, status: status.reading))
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                     .padding()
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 50))
