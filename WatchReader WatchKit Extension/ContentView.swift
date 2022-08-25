@@ -46,9 +46,11 @@ struct ContentView: View {
             }
             .navigationTitle("WatchReader")
             .toolbar{
-                Button("Add Book", action: {
-                    showSearch = true
-                })
+                Button(role: .none) {
+                    showSearch.toggle()
+                } label: {
+                    Label("Add book", systemImage: "plus")
+                }
             }
     }
 }
@@ -106,7 +108,7 @@ struct SearchView: View {
                     Button("Done") {
                         search = ""
                         searchResult = []
-                        showSearch = false
+                        showSearch.toggle()
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
@@ -121,6 +123,7 @@ struct SearchView: View {
             }
             .listStyle(.carousel)
             .navigationTitle("Search")
+            .navigationViewStyle(.stack)
     }
     
     func searchData() async {
