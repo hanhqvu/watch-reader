@@ -17,6 +17,7 @@
 		C90A809828AE545E00931E40 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A809728AE545E00931E40 /* ComplicationController.swift */; };
 		C90A809A28AE545F00931E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90A809928AE545F00931E40 /* Assets.xcassets */; };
 		C90A809D28AE545F00931E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90A809C28AE545F00931E40 /* Preview Assets.xcassets */; };
+		C9D6E51628B7E66100A66C4A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6E51528B7E66100A66C4A /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		C90A809C28AE545F00931E40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C90A809E28AE545F00931E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C90A809F28AE545F00931E40 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C9D6E51528B7E66100A66C4A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		C90A808E28AE545E00931E40 /* WatchReader WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C9D6E51528B7E66100A66C4A /* RatingView.swift */,
 				C90A808F28AE545E00931E40 /* WatchReaderApp.swift */,
 				C90A809128AE545E00931E40 /* ContentView.swift */,
 				C90A809328AE545E00931E40 /* NotificationController.swift */,
@@ -269,6 +272,7 @@
 				C90A809428AE545E00931E40 /* NotificationController.swift in Sources */,
 				C90A809228AE545E00931E40 /* ContentView.swift in Sources */,
 				C90A809828AE545E00931E40 /* ComplicationController.swift in Sources */,
+				C9D6E51628B7E66100A66C4A /* RatingView.swift in Sources */,
 				C90A809028AE545E00931E40 /* WatchReaderApp.swift in Sources */,
 				C90A809628AE545E00931E40 /* NotificationView.swift in Sources */,
 			);

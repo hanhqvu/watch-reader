@@ -81,6 +81,7 @@ struct DetailView: View {
                     ForEach(book.author, id: \.self) { author in
                         Text("\(author) ")
                     }
+                    RatingView(rating: $book.rating)
                 }
             }
         }
