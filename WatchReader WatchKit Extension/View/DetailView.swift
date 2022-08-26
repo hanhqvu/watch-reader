@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DetailView: View {
     @Binding var book: Book
-    @Binding var showDetail: Bool
     
     var body: some View {
         ScrollView {
@@ -19,7 +18,8 @@ struct DetailView: View {
                         .resizable()
                         .scaledToFit()
                     } placeholder: {
-                        Color.secondary
+                        ProgressView()
+                            .frame(width: 60, height: 120, alignment: .leading)
                     }
                     .frame(maxWidth: 60, maxHeight: 120, alignment: .leading)
                 Text("\(book.title)")
@@ -33,13 +33,5 @@ struct DetailView: View {
                 RatingView(rating: $book.rating)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Done") {
-                    showDetail.toggle()
-                }
-            }
-        }
-        .navigationTitle("Details")
     }
 }
