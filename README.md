@@ -16,6 +16,11 @@ git clone git@github.com:hanhqvu/watch-reader.git
 - Open the project in Xcode
 - Press ``CMD + R`` to open a preview of this project
 
+# Tech Stack
+- The app used Swift and SwiftUI
+- [OpenLibrary API](https://openlibrary.org/developers/api) is used to serve books' data
+- [Nuke](https://github.com/kean/Nuke) is used for image caching
+
 # Using
 
 - Currently, the app is not available on the App Store.
