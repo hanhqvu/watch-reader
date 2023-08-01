@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1340"
+   LastUpgradeVersion = "1430"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C90A807E28AE545B00931E40"
-               BuildableName = "WatchReader WatchKit App.app"
-               BlueprintName = "WatchReader WatchKit App"
+               BuildableName = "WatchReader.app"
+               BlueprintName = "WatchReader App"
                ReferencedContainer = "container:WatchReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,8 +60,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C90A807E28AE545B00931E40"
-            BuildableName = "WatchReader WatchKit App.app"
-            BlueprintName = "WatchReader WatchKit App"
+            BuildableName = "WatchReader.app"
+            BlueprintName = "WatchReader App"
             ReferencedContainer = "container:WatchReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C90A807E28AE545B00931E40"
-            BuildableName = "WatchReader WatchKit App.app"
-            BlueprintName = "WatchReader WatchKit App"
+            BuildableName = "WatchReader.app"
+            BlueprintName = "WatchReader App"
             ReferencedContainer = "container:WatchReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -15,7 +15,5 @@ struct WatchReaderApp: App {
                 ContentView()
             }
         }
-
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }
