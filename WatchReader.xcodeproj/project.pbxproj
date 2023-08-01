@@ -18,6 +18,7 @@
 		C9524C032A79042000D19628 /* ResStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF42A79042000D19628 /* ResStruct.swift */; };
 		C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF52A79042000D19628 /* WatchReaderApp.swift */; };
 		C9524C052A79042000D19628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* ContentView.swift */; };
+		C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9CE2A79689900F12708 /* Book+Ext.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
 /* End PBXBuildFile section */
@@ -59,8 +60,9 @@
 		C9524BF42A79042000D19628 /* ResStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResStruct.swift; sourceTree = "<group>"; };
 		C9524BF52A79042000D19628 /* WatchReaderApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchReaderApp.swift; sourceTree = "<group>"; };
 		C9524BF62A79042000D19628 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C971A9CE2A79689900F12708 /* Book+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Ext.swift"; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
-		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProvider.swift; path = ../StorageProvider.swift; sourceTree = "<group>"; };
+		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,18 +96,18 @@
 		C9524BEB2A79042000D19628 /* WatchReader App */ = {
 			isa = PBXGroup;
 			children = (
+				C971A9CD2A79681200F12708 /* Models */,
+				C971A9CA2A7967AA00F12708 /* Utils */,
 				C9524BEC2A79042000D19628 /* Assets.xcassets */,
 				C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */,
-				C9524BED2A79042000D19628 /* View */,
-				C9524BF42A79042000D19628 /* ResStruct.swift */,
-				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
+				C9524BED2A79042000D19628 /* Views */,
 				C9524BF52A79042000D19628 /* WatchReaderApp.swift */,
 				C9524BF62A79042000D19628 /* ContentView.swift */,
 			);
 			path = "WatchReader App";
 			sourceTree = "<group>";
 		};
-		C9524BED2A79042000D19628 /* View */ = {
+		C9524BED2A79042000D19628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C9524BEE2A79042000D19628 /* BookListView.swift */,
@@ -115,7 +117,40 @@
 				C9524BF22A79042000D19628 /* BookItemView.swift */,
 				C9524BF32A79042000D19628 /* RatingView.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C971A9CA2A7967AA00F12708 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C971A9CC2A7967DD00F12708 /* Extension */,
+				C971A9CB2A7967B800F12708 /* Manager */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C971A9CB2A7967B800F12708 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C971A9CC2A7967DD00F12708 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C971A9CE2A79689900F12708 /* Book+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C971A9CD2A79681200F12708 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9524BF42A79042000D19628 /* ResStruct.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */,
 				C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */,
 				C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */,
 				C9524C052A79042000D19628 /* ContentView.swift in Sources */,
