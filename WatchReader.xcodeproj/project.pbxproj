@@ -18,6 +18,7 @@
 		C9524C032A79042000D19628 /* ResStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF42A79042000D19628 /* ResStruct.swift */; };
 		C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF52A79042000D19628 /* WatchReaderApp.swift */; };
 		C9524C052A79042000D19628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* ContentView.swift */; };
+		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C9524BF42A79042000D19628 /* ResStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResStruct.swift; sourceTree = "<group>"; };
 		C9524BF52A79042000D19628 /* WatchReaderApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchReaderApp.swift; sourceTree = "<group>"; };
 		C9524BF62A79042000D19628 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				C9524BEC2A79042000D19628 /* Assets.xcassets */,
+				C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */,
 				C9524BED2A79042000D19628 /* View */,
 				C9524BF42A79042000D19628 /* ResStruct.swift */,
 				C9524BF52A79042000D19628 /* WatchReaderApp.swift */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */,
 				C9524C052A79042000D19628 /* ContentView.swift in Sources */,
 				C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */,
 				C9524C022A79042000D19628 /* RatingView.swift in Sources */,
@@ -467,6 +471,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */,
+			);
+			currentVersion = C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */;
+			path = WatchReader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C90A807528AE545B00931E40 /* Project object */;
 }
