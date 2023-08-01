@@ -40,7 +40,7 @@ struct SearchItemView: View {
                     }
                 })) {
                     Button(role: .none) {
-                        bookList.append(Book(id: bookRes.id, title: bookRes.title, author: bookRes.author ?? [], imageKey: bookRes.imageKey ?? "", status: status.reading))
+                        bookList.append(Book(id: bookRes.id, title: bookRes.title, author: bookRes.author ?? [], imageKey: bookRes.imageKey ?? "", status: Status.reading))
                         } label: {
                             Image(systemName: "plus")
                         }

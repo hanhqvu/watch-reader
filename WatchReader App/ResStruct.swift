@@ -25,10 +25,10 @@ struct SearchRes: Codable {
     var docs: [BookRes]
 }
 
-enum status {
-    case reading
-    case read
-    case abandoned
+enum Status: String {
+    case reading = "Reading"
+    case finished = "Finshed"
+    case abandoned = "Abandoned"
 }
 
 struct Book {
@@ -36,6 +36,6 @@ struct Book {
     let title: String
     let author: [String]
     let imageKey: String
-    var status: status
+    var status: Status
     var rating: Int?
 }
