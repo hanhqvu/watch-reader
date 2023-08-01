@@ -94,11 +94,11 @@
 		C9524BEB2A79042000D19628 /* WatchReader App */ = {
 			isa = PBXGroup;
 			children = (
-				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
 				C9524BEC2A79042000D19628 /* Assets.xcassets */,
 				C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */,
 				C9524BED2A79042000D19628 /* View */,
 				C9524BF42A79042000D19628 /* ResStruct.swift */,
+				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
 				C9524BF52A79042000D19628 /* WatchReaderApp.swift */,
 				C9524BF62A79042000D19628 /* ContentView.swift */,
 			);

@@ -22,3 +22,24 @@ class StorageProvider {
         })
     }
 }
+
+extension BookEntity {
+    var bookStatus: Status {
+        get {
+            return Status(rawValue: "\(String(describing: self.status))") ?? .reading
+        }
+        
+        set {
+            self.status = String(newValue.rawValue)
+        }
+    }
+}
+
+extension BookEntity {
+    static var booksByRating: NSFetchRequest<BookEntity> = {
+        let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \BookEntity.rating, ascending: false)]
+        
+        return request
+    }()
+}
