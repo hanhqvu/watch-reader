@@ -19,6 +19,7 @@
 		C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF52A79042000D19628 /* WatchReaderApp.swift */; };
 		C9524C052A79042000D19628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* ContentView.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
+		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C9524BF52A79042000D19628 /* WatchReaderApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchReaderApp.swift; sourceTree = "<group>"; };
 		C9524BF62A79042000D19628 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
+		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProvider.swift; path = ../StorageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		C9524BEB2A79042000D19628 /* WatchReader App */ = {
 			isa = PBXGroup;
 			children = (
+				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
 				C9524BEC2A79042000D19628 /* Assets.xcassets */,
 				C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */,
 				C9524BED2A79042000D19628 /* View */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */,
+				C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */,
 				C9524C052A79042000D19628 /* ContentView.swift in Sources */,
 				C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */,
 				C9524C022A79042000D19628 /* RatingView.swift in Sources */,
