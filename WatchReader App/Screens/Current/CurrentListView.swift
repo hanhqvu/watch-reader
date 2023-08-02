@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CurrentListView: View {
     @State var bookList: [Book] = []
     @State private var showSearch: Bool = false
     

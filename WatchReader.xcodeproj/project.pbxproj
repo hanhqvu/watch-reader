@@ -15,10 +15,11 @@
 		C9524C002A79042000D19628 /* SearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF12A79042000D19628 /* SearchItemView.swift */; };
 		C9524C012A79042000D19628 /* BookItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF22A79042000D19628 /* BookItemView.swift */; };
 		C9524C022A79042000D19628 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF32A79042000D19628 /* RatingView.swift */; };
-		C9524C032A79042000D19628 /* ResStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF42A79042000D19628 /* ResStruct.swift */; };
+		C9524C032A79042000D19628 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF42A79042000D19628 /* Response.swift */; };
 		C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF52A79042000D19628 /* WatchReaderApp.swift */; };
-		C9524C052A79042000D19628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* ContentView.swift */; };
+		C9524C052A79042000D19628 /* CurrentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* CurrentListView.swift */; };
 		C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9CE2A79689900F12708 /* Book+Ext.swift */; };
+		C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D32A79D61500F12708 /* NetworkManager.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
 /* End PBXBuildFile section */
@@ -57,10 +58,11 @@
 		C9524BF12A79042000D19628 /* SearchItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemView.swift; sourceTree = "<group>"; };
 		C9524BF22A79042000D19628 /* BookItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItemView.swift; sourceTree = "<group>"; };
 		C9524BF32A79042000D19628 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		C9524BF42A79042000D19628 /* ResStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResStruct.swift; sourceTree = "<group>"; };
+		C9524BF42A79042000D19628 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		C9524BF52A79042000D19628 /* WatchReaderApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchReaderApp.swift; sourceTree = "<group>"; };
-		C9524BF62A79042000D19628 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C9524BF62A79042000D19628 /* CurrentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentListView.swift; sourceTree = "<group>"; };
 		C971A9CE2A79689900F12708 /* Book+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Ext.swift"; sourceTree = "<group>"; };
+		C971A9D32A79D61500F12708 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
 		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,13 +98,13 @@
 		C9524BEB2A79042000D19628 /* WatchReader App */ = {
 			isa = PBXGroup;
 			children = (
+				C971A9D02A79D53600F12708 /* Screens */,
 				C971A9CD2A79681200F12708 /* Models */,
 				C971A9CA2A7967AA00F12708 /* Utils */,
 				C9524BEC2A79042000D19628 /* Assets.xcassets */,
 				C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */,
 				C9524BED2A79042000D19628 /* Views */,
 				C9524BF52A79042000D19628 /* WatchReaderApp.swift */,
-				C9524BF62A79042000D19628 /* ContentView.swift */,
 			);
 			path = "WatchReader App";
 			sourceTree = "<group>";
@@ -112,7 +114,6 @@
 			children = (
 				C9524BEE2A79042000D19628 /* BookListView.swift */,
 				C9524BEF2A79042000D19628 /* DetailView.swift */,
-				C9524BF02A79042000D19628 /* SearchView.swift */,
 				C9524BF12A79042000D19628 /* SearchItemView.swift */,
 				C9524BF22A79042000D19628 /* BookItemView.swift */,
 				C9524BF32A79042000D19628 /* RatingView.swift */,
@@ -132,6 +133,7 @@
 		C971A9CB2A7967B800F12708 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				C971A9D32A79D61500F12708 /* NetworkManager.swift */,
 				C9C39C022A7920F800B918DC /* StorageProvider.swift */,
 			);
 			path = Manager;
@@ -148,9 +150,34 @@
 		C971A9CD2A79681200F12708 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C9524BF42A79042000D19628 /* ResStruct.swift */,
+				C9524BF42A79042000D19628 /* Response.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C971A9D02A79D53600F12708 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C971A9D22A79D56E00F12708 /* Search */,
+				C971A9D12A79D55E00F12708 /* Current */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C971A9D12A79D55E00F12708 /* Current */ = {
+			isa = PBXGroup;
+			children = (
+				C9524BF62A79042000D19628 /* CurrentListView.swift */,
+			);
+			path = Current;
+			sourceTree = "<group>";
+		};
+		C971A9D22A79D56E00F12708 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C9524BF02A79042000D19628 /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,12 +280,13 @@
 				C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */,
 				C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */,
 				C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */,
-				C9524C052A79042000D19628 /* ContentView.swift in Sources */,
+				C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */,
+				C9524C052A79042000D19628 /* CurrentListView.swift in Sources */,
 				C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */,
 				C9524C022A79042000D19628 /* RatingView.swift in Sources */,
 				C9524BFE2A79042000D19628 /* DetailView.swift in Sources */,
 				C9524BFF2A79042000D19628 /* SearchView.swift in Sources */,
-				C9524C032A79042000D19628 /* ResStruct.swift in Sources */,
+				C9524C032A79042000D19628 /* Response.swift in Sources */,
 				C9524BFD2A79042000D19628 /* BookListView.swift in Sources */,
 				C9524C012A79042000D19628 /* BookItemView.swift in Sources */,
 				C9524C002A79042000D19628 /* SearchItemView.swift in Sources */,

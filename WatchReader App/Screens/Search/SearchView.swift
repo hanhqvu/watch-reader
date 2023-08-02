@@ -38,7 +38,9 @@ struct SearchListView: View {
                     }
                     .onSubmit {
                         Task {
-                            await searchData()
+                            isLoading.toggle()
+                            searchResult = await NetworkManager.shared.searchData(with: search)
+                            isLoading.toggle()
                         }
                     }
                 }
@@ -46,24 +48,5 @@ struct SearchListView: View {
             .listStyle(.carousel)
             .navigationTitle("Search")
             .navigationViewStyle(.stack)
-    }
-    
-    func searchData() async {
-        isLoading.toggle()
-        guard let url = URL(string: "https://openlibrary.org/search.json?q=\(search.replacingOccurrences(of: " ", with: "+"))") else {
-            print("Invalid URL")
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let search: SearchRes = try! JSONDecoder().decode(SearchRes.self, from: data)
-            searchResult = search.docs.filter { book in
-                return book.imageKey != nil
-            }
-            isLoading.toggle()
-        } catch {
-            print("Invalid data")
-        }
     }
 }
