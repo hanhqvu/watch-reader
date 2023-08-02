@@ -14,7 +14,7 @@ struct CurrentListView: View {
     var body: some View {
         BookListView(bookList: $bookList)
             .sheet(isPresented: $showSearch) {
-                SearchListView(bookList: $bookList, showSearch: $showSearch)
+                SearchListView()
             }
             .navigationTitle("WatchReader")
             .toolbar{

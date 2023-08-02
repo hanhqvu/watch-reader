@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct SearchListView: View {
-    @State var search: String = ""
-    @State var searchResult: [BookRes] = []
-    @State var isLoading: Bool = false
-    @Binding var bookList: [Book]
-    @Binding var showSearch: Bool
+    @StateObject var searchViewModel = SearchViewModel(showSearch: false)
     
     var body: some View {
             List {
-                if (isLoading) {
+                if (searchViewModel.isLoading) {
                     ProgressView("Loading")
                 } else {
-                    ForEach(0..<searchResult.count, id: \.self) { index in
-                        SearchItemView(bookRes: searchResult[index], bookList: $bookList)
+                    ForEach(0..<searchViewModel.searchResult.count, id: \.self) { index in
+                        SearchItemView(bookRes: searchViewModel.searchResult[index], bookList: $searchViewModel.bookList)
                     }
                     .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
                 }
@@ -28,19 +24,15 @@ struct SearchListView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
-                        search = ""
-                        searchResult = []
-                        showSearch.toggle()
+                        searchViewModel.dismiss()
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    TextField("Search with title", text: $search) {
+                    TextField("Search with title", text: $searchViewModel.keyword) {
                     }
                     .onSubmit {
                         Task {
-                            isLoading.toggle()
-                            searchResult = await NetworkManager.shared.searchData(with: search)
-                            isLoading.toggle()
+                            await searchViewModel.getSearchResults()
                         }
                     }
                 }
