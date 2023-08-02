@@ -16,7 +16,7 @@ struct CurrentListView: View {
             .sheet(isPresented: $showSearch) {
                 SearchListView()
             }
-            .navigationTitle("WatchReader")
+            .navigationTitle("Currently Reading")
             .toolbar{
                 Button(role: .none) {
                     showSearch.toggle()
