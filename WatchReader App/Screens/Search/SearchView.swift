@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SearchListView: View {
-    @StateObject var searchViewModel = SearchViewModel(showSearch: false)
+    @StateObject var searchViewModel = SearchViewModel()
+    @Binding var showSearch: Bool
     
     var body: some View {
             List {
@@ -25,6 +26,7 @@ struct SearchListView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         searchViewModel.dismiss()
+                        showSearch.toggle()
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {

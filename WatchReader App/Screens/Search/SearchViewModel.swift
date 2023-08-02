@@ -12,16 +12,10 @@ final class SearchViewModel: ObservableObject {
     @Published var searchResult: [BookRes] = []
     @Published var isLoading: Bool = false
     @Published var bookList: [Book] = []
-    @Published var showSearch: Bool
-    
-    init(showSearch: Bool) {
-        self.showSearch = showSearch
-    }
     
     func dismiss() {
         keyword = ""
         searchResult = []
-        showSearch.toggle()
     }
     
     func getSearchResults() async {
