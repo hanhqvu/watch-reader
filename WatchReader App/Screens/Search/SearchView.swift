@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchListView: View {
+struct SearchView: View {
     @StateObject var searchViewModel = SearchViewModel()
     @Binding var showSearch: Bool
     
