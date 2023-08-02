@@ -20,6 +20,7 @@
 		C9524C052A79042000D19628 /* CurrentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* CurrentListView.swift */; };
 		C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9CE2A79689900F12708 /* Book+Ext.swift */; };
 		C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D32A79D61500F12708 /* NetworkManager.swift */; };
+		C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D52A79DBBF00F12708 /* String+Ext.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		C9524BF62A79042000D19628 /* CurrentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentListView.swift; sourceTree = "<group>"; };
 		C971A9CE2A79689900F12708 /* Book+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Ext.swift"; sourceTree = "<group>"; };
 		C971A9D32A79D61500F12708 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C971A9D52A79DBBF00F12708 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
 		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				C971A9CE2A79689900F12708 /* Book+Ext.swift */,
+				C971A9D52A79DBBF00F12708 /* String+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */,
 				C9524C022A79042000D19628 /* RatingView.swift in Sources */,
 				C9524BFE2A79042000D19628 /* DetailView.swift in Sources */,
+				C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */,
 				C9524BFF2A79042000D19628 /* SearchView.swift in Sources */,
 				C9524C032A79042000D19628 /* Response.swift in Sources */,
 				C9524BFD2A79042000D19628 /* BookListView.swift in Sources */,

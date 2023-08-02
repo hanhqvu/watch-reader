@@ -18,7 +18,7 @@ final class NetworkManager {
     }
     
     func searchData(with keyword: String) async -> [BookRes] {
-        guard let url = URL(string: baseURL + "search.json?q=\(keyword.replacingOccurrences(of: " ", with: "+")))") else {
+        guard let url = URL(string: baseURL + "search.json?q=\(keyword.replaceSpaceWithPlus())") else {
             print("Invalid URL")
             return []
         }
