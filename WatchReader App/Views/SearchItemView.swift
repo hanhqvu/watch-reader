@@ -32,22 +32,22 @@ struct SearchItemView: View {
                         .foregroundColor(.black)
                 }
                 
-                if (!bookList.contains(where: { element in
-                    if element.id == bookRes.id {
-                        return true
-                    } else {
-                        return false
-                    }
-                })) {
-                    Button(role: .none) {
-                        bookList.append(Book(id: bookRes.id, title: bookRes.title, author: bookRes.author ?? [], imageKey: bookRes.imageKey ?? "", status: Status.reading))
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    .padding()
-                    .background(.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 50))
-                }
+//                if (!bookList.contains(where: { element in
+//                    if element.id == bookRes.id {
+//                        return true
+//                    } else {
+//                        return false
+//                    }
+//                })) {
+//                    Button(role: .none) {
+//                        bookList.append(Book(id: bookRes.id, title: bookRes.title, author: bookRes.author ?? [], imageKey: bookRes.imageKey ?? "", status: Status.reading))
+//                        } label: {
+//                            Image(systemName: "plus")
+//                        }
+//                    .padding()
+//                    .background(.blue)
+//                    .clipShape(RoundedRectangle(cornerRadius: 50))
+//                }
         }
         .padding(1)
         .frame(maxWidth: .infinity)
