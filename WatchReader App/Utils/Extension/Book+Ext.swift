@@ -43,6 +43,17 @@ extension Book {
             self.rating = Int16(newValue)
         }
     }
+    
+    var progressInt: Int? {
+        get {
+            return Int(self.progress)
+        }
+        
+        set {
+            guard let newValue = newValue else { return }
+            self.progress = Int16(newValue)
+        }
+    }
 }
 
 extension Book {
