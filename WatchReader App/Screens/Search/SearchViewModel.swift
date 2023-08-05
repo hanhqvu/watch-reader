@@ -13,7 +13,7 @@ final class SearchViewModel: ObservableObject {
     @Published var keyword: String = ""
     @Published var searchResult: [BookRes] = []
     @Published var isLoading: Bool = false
-    var newBooks: [BookEntity] = []
+    var newBooks: [Book] = []
     let storageProvider = StorageProvider.shared
     let viewContext: NSManagedObjectContext
     let searchContext: NSManagedObjectContext

@@ -25,9 +25,9 @@ class StorageProvider {
 }
 
 extension StorageProvider {
-    func getBookByTitle(_ title: String, in context: NSManagedObjectContext) -> [BookEntity] {
-        let fetchRequest: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(BookEntity.title), title])
+    func getBookByTitle(_ title: String, in context: NSManagedObjectContext) -> [Book] {
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.title), title])
         
         do {
             return try context.fetch(fetchRequest)
@@ -54,8 +54,8 @@ extension StorageProvider {
 }
 
 extension StorageProvider {
-    func addBook(_ bookToAdd: BookRes, context: NSManagedObjectContext) -> BookEntity {
-        let book = BookEntity(context: context)
+    func addBook(_ bookToAdd: BookRes, context: NSManagedObjectContext) -> Book {
+        let book = Book(context: context)
         book.title = bookToAdd.title
         book.bookStatus = .reading
         book.imageKey = bookToAdd.imageKey
@@ -73,7 +73,7 @@ extension StorageProvider {
         return book
     }
     
-    func removeBook(_ addedBook: BookEntity, context: NSManagedObjectContext) {
+    func removeBook(_ addedBook: Book, context: NSManagedObjectContext) {
         context.delete(addedBook)
     }
 }

@@ -2,9 +2,9 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Author" representedClassName="Author" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookEntity" inverseName="authors" inverseEntity="BookEntity"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="authors" inverseEntity="Book"/>
     </entity>
-    <entity name="BookEntity" representedClassName="BookEntity" syncable="YES" codeGenerationType="class">
+    <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
         <attribute name="imageKey" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="5" usesScalarValueType="YES"/>
         <attribute name="status" attributeType="String"/>

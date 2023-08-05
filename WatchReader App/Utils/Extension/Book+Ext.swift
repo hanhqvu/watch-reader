@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-extension BookEntity {
+extension Book {
     var bookStatus: Status {
         get {
             return Status(rawValue: "\(String(describing: self.status))") ?? .reading
@@ -20,16 +20,16 @@ extension BookEntity {
     }
 }
 
-extension BookEntity {
-    static var booksByRating: NSFetchRequest<BookEntity> = {
-        let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \BookEntity.rating, ascending: false)]
+extension Book {
+    static var booksByRating: NSFetchRequest<Book> = {
+        let request: NSFetchRequest<Book> = Book.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Book.rating, ascending: false)]
         
         return request
     }()
 }
 
-extension BookEntity {
+extension Book {
     var authorArray: [Author] {
         get {
             let set = self.authors as? Set<Author> ?? []
@@ -44,7 +44,7 @@ extension BookEntity {
     }
 }
 
-extension BookEntity {
+extension Book {
     var ratingInt: Int? {
         get {
             return Int(self.rating)
