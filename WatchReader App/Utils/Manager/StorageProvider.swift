@@ -57,7 +57,7 @@ extension StorageProvider {
     func addBook(_ bookToAdd: BookRes, context: NSManagedObjectContext) -> BookEntity {
         let book = BookEntity(context: context)
         book.title = bookToAdd.title
-        book.status = "Reading"
+        book.bookStatus = .reading
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
         bookToAdd.author?.forEach { author in
