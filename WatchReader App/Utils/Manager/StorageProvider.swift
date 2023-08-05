@@ -25,20 +25,7 @@ class StorageProvider {
 }
 
 extension StorageProvider {
-    func getBookByTitle(_ title: String, in context: NSManagedObjectContext) -> [Book] {
-        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.title), title])
-        
-        do {
-            return try context.fetch(fetchRequest)
-        } catch {
-            print("Failed to fetch movies: \(error)")
-            return []
-        }
-    }
-}
-
-extension StorageProvider {
+    // generic methods
     func save() {
         let context = persistentContainer.viewContext
         
@@ -54,6 +41,7 @@ extension StorageProvider {
 }
 
 extension StorageProvider {
+    // methods for book
     func addBook(_ bookToAdd: BookRes, context: NSManagedObjectContext) -> Book {
         let book = Book(context: context)
         book.title = bookToAdd.title
@@ -76,9 +64,22 @@ extension StorageProvider {
     func removeBook(_ addedBook: Book, context: NSManagedObjectContext) {
         context.delete(addedBook)
     }
+    
+    func getBookByTitle(_ title: String, in context: NSManagedObjectContext) -> [Book] {
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.title), title])
+        
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch movies: \(error)")
+            return []
+        }
+    }
 }
 
 extension StorageProvider {
+    // method for authors
     func getAuthorWithNameOf(_ name: String, context: NSManagedObjectContext) -> [Author] {
         let fetchRequest: NSFetchRequest<Author> = Author.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Author.name), name])

@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 extension Book {
+    // computed properties for convinence usage
     var bookStatus: Status {
         get {
             return Status(rawValue: "\(String(describing: self.status))") ?? .reading
@@ -18,18 +19,7 @@ extension Book {
             self.status = String(newValue.rawValue)
         }
     }
-}
-
-extension Book {
-    static var booksByRating: NSFetchRequest<Book> = {
-        let request: NSFetchRequest<Book> = Book.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Book.rating, ascending: false)]
-        
-        return request
-    }()
-}
-
-extension Book {
+    
     var authorArray: [Author] {
         get {
             let set = self.authors as? Set<Author> ?? []
@@ -42,9 +32,7 @@ extension Book {
             self.authors = NSSet(array: newValue)
         }
     }
-}
-
-extension Book {
+    
     var ratingInt: Int? {
         get {
             return Int(self.rating)
@@ -55,4 +43,14 @@ extension Book {
             self.rating = Int16(newValue)
         }
     }
+}
+
+extension Book {
+    // fetch request with different sort
+    static var booksByRating: NSFetchRequest<Book> = {
+        let request: NSFetchRequest<Book> = Book.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Book.rating, ascending: false)]
+        
+        return request
+    }()
 }
