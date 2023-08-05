@@ -13,4 +13,8 @@
         <attribute name="title" attributeType="String"/>
         <relationship name="authors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" inverseName="books" inverseEntity="Author"/>
     </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="length" attributeType="Double" usesScalarValueType="YES"/>
+    </entity>
 </model>
