@@ -61,8 +61,13 @@ extension StorageProvider {
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
         bookToAdd.author?.forEach { author in
-            let authorToAdd = Author(context: context)
-            authorToAdd.name = author
+            var authorToAdd: Author
+            if (!getAuthorWithNameOf(author, context: context).isEmpty) {
+                authorToAdd = getAuthorWithNameOf(author, context: context)[0]
+            } else {
+                authorToAdd = Author(context: context)
+                authorToAdd.name = author
+            }
             book.addToAuthors(authorToAdd)
         }
         return book
@@ -70,5 +75,19 @@ extension StorageProvider {
     
     func removeBook(_ addedBook: BookEntity, context: NSManagedObjectContext) {
         context.delete(addedBook)
+    }
+}
+
+extension StorageProvider {
+    func getAuthorWithNameOf(_ name: String, context: NSManagedObjectContext) -> [Author] {
+        let fetchRequest: NSFetchRequest<Author> = Author.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Author.name), name])
+        
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch movies: \(error)")
+            return []
+        }
     }
 }
