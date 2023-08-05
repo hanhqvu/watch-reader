@@ -23,3 +23,32 @@ class StorageProvider {
         })
     }
 }
+
+extension StorageProvider {
+    func getBookByTitle(_ title: String, in context: NSManagedObjectContext) -> [BookEntity] {
+        let fetchRequest: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(BookEntity.title), title])
+        
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch movies: \(error)")
+            return []
+        }
+    }
+}
+
+extension StorageProvider {
+    func save() {
+        let context = persistentContainer.viewContext
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                //Error persisting
+                context.rollback()
+            }
+        }
+    }
+}

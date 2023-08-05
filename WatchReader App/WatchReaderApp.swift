@@ -10,12 +10,16 @@ import SwiftUI
 @main
 struct WatchReaderApp: App {
     let viewContext = StorageProvider.shared.persistentContainer.viewContext
+    @Environment(\.scenePhase) var scenePhase
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
                 CurrentListView()
                     .environment(\.managedObjectContext, viewContext)
+            }
+            .onChange(of: scenePhase) { _ in
+                StorageProvider.shared.save()
             }
         }
     }
