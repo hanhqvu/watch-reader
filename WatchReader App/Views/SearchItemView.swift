@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SearchItemView: View {
-    @State var bookRes: BookRes
-    @State var listStatus: ListStatus
+    @Binding var bookRes: BookRes
     
     var body: some View {
         HStack {
@@ -32,7 +31,7 @@ struct SearchItemView: View {
                     .foregroundColor(.black)
             }
             
-            switch (listStatus) {
+            switch (bookRes.listStatus) {
             case .added:
                 Image(systemName: "tray.circle")
                     .padding()
@@ -54,12 +53,12 @@ struct SearchItemView: View {
         .padding(1)
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            switch (listStatus) {
+            switch (bookRes.listStatus) {
             case .added: return
             case .pending:
-                listStatus = .none
+                bookRes.listStatus = .none
             case .none:
-                listStatus = .pending
+                bookRes.listStatus = .pending
             }
         }
     }
