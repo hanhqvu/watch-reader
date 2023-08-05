@@ -24,22 +24,14 @@ final class SearchViewModel: ObservableObject {
         searchContext.parent = viewContext
     }
     
-    func addBook(_ bookToAdd: BookRes) -> BookEntity {
-        let book = BookEntity(context: searchContext)
-        book.title = bookToAdd.title
-        book.status = "Reading"
-        book.imageKey = bookToAdd.imageKey
-        book.summary = bookToAdd.title
-        bookToAdd.author?.forEach { author in
-            let authorToAdd = Author(context: searchContext)
-            authorToAdd.name = author
-            book.addToAuthors(authorToAdd)
-        }
-        return book
+    func addBook(_ bookToAdd: BookRes) {
+        let newBook = storageProvider.addBook(bookToAdd, context: searchContext)
+        newBooks.append(newBook)
     }
     
-    func removeBook(_ addedBook: BookEntity) {
-        searchContext.delete(addedBook)
+    func removeBookWithTitle(_ title: String) {
+        guard let newBook = newBooks.first(where: { $0.title == title}) else { return }
+        storageProvider.removeBook(newBook, context: searchContext)
     }
     
     func complete() {

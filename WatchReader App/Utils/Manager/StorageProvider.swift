@@ -52,3 +52,23 @@ extension StorageProvider {
         }
     }
 }
+
+extension StorageProvider {
+    func addBook(_ bookToAdd: BookRes, context: NSManagedObjectContext) -> BookEntity {
+        let book = BookEntity(context: context)
+        book.title = bookToAdd.title
+        book.status = "Reading"
+        book.imageKey = bookToAdd.imageKey
+        book.summary = bookToAdd.title
+        bookToAdd.author?.forEach { author in
+            let authorToAdd = Author(context: context)
+            authorToAdd.name = author
+            book.addToAuthors(authorToAdd)
+        }
+        return book
+    }
+    
+    func removeBook(_ addedBook: BookEntity, context: NSManagedObjectContext) {
+        context.delete(addedBook)
+    }
+}

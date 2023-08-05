@@ -20,10 +20,9 @@ struct SearchView: View {
                     SearchItemView(bookRes: $result)
                         .onChange(of: result.listStatus) { newStatus in
                             if (newStatus == .pending) {
-                                viewModel.newBooks.append(viewModel.addBook(result))
+                                viewModel.addBook(result)
                             } else {
-                                guard let newBook = viewModel.newBooks.first(where: { $0.title == result.title}) else { return }
-                                viewModel.removeBook(newBook)
+                                viewModel.removeBookWithTitle(result.title)
                             }
                         }
                 }
