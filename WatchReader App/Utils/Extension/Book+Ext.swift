@@ -28,3 +28,18 @@ extension BookEntity {
         return request
     }()
 }
+
+extension BookEntity {
+    var authorArray: [Author] {
+        get {
+            let set = self.authors as? Set<Author> ?? []
+            return set.sorted {
+                $0.name! < $1.name!
+            }
+        }
+        
+        set {
+            self.authors = NSSet(array: newValue)
+        }
+    }
+}
