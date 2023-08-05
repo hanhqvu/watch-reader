@@ -11,7 +11,7 @@ enum ListStatus {
     case added, pending, none
 }
 
-struct BookRes: Codable {
+struct BookRes: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case title = "title"
         case id = "key"
