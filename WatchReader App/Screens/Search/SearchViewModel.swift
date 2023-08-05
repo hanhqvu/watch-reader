@@ -39,20 +39,13 @@ final class SearchViewModel: ObservableObject {
     }
     
     func removeBook(_ addedBook: BookEntity) {
-        addedBook.authorArray.forEach { author in
-            author.removeFromBooks(addedBook)
-        }
         searchContext.delete(addedBook)
-        print("removed")
     }
     
     func complete() {
-        print(searchContext.insertedObjects)
         do {
             try searchContext.save()
-            print("Books saved succesfully")
         } catch {
-            print("Failed to save books")
         }
     }
     
