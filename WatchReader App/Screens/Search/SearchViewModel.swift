@@ -29,6 +29,12 @@ final class SearchViewModel: ObservableObject {
         book.status = "Reading"
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
+        book.authorArray = []
+        bookToAdd.author?.forEach { author in
+            let authorToAdd = Author(context: searchContext)
+            authorToAdd.name = author
+            book.authorArray.append(authorToAdd)
+        }
         return book
     }
     
