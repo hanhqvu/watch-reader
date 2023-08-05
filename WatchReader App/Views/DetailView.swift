@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Binding var book: Book
+    @State var book: Book
     
     var body: some View {
         ScrollView {

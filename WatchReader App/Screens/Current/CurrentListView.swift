@@ -13,12 +13,7 @@ struct CurrentListView: View {
     @State private var showSearch: Bool = false
     
     var body: some View {
-//        BookListView(bookList: $bookList)
-        List {
-            ForEach(bookList, id: \.self) { book in
-                Text(book.title ?? "")
-            }
-        }
+        BookListView(bookList: bookList)
             .sheet(isPresented: $showSearch) {
                 SearchView(showSearch: $showSearch)
             }
