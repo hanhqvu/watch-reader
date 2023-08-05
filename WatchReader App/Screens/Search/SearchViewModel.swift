@@ -13,37 +13,32 @@ final class SearchViewModel: ObservableObject {
     @Published var keyword: String = ""
     @Published var searchResult: [BookRes] = []
     @Published var isLoading: Bool = false
-    @Published var bookList: [Book] = []
-    let viewContext = StorageProvider.shared.persistentContainer.viewContext
-    let searchContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let storageProvider = StorageProvider.shared
+    let viewContext: NSManagedObjectContext
+    let searchContext: NSManagedObjectContext
     
     init() {
+        viewContext = storageProvider.persistentContainer.viewContext
+        searchContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         searchContext.parent = viewContext
     }
     
-    func addBook(_ bookToAdd: BookRes) {
+    func addBook(_ bookToAdd: BookRes) -> BookEntity {
         let book = BookEntity(context: searchContext)
         book.title = bookToAdd.title
         book.status = "Reading"
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
-        
-        do {
-            try searchContext.save()
-            print("Book added succesfully")
-        } catch {
-            print("Failed to add book: \(error)")
-        }
+        return book
     }
     
-    func dismiss() {
-        keyword = ""
-        searchResult = []
+    func removeBook(_ addedBook: BookEntity) {
+        searchContext.delete(addedBook)
     }
     
     func complete() {
         do {
-            try viewContext.save()
+            try searchContext.save()
             print("Books saved succesfully")
         } catch {
             print("Failed to save books")
