@@ -19,6 +19,7 @@ struct CurrentListView: View {
                     BookItemView(title: book.title!, key: book.imageKey!)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
+                                book.bookStatus = .abandoned
                             } label: {
                                 Image(systemName: "xmark.circle.fill")
                                     .imageScale(.large)
@@ -26,6 +27,7 @@ struct CurrentListView: View {
                         }
                         .swipeActions(edge: .leading) {
                             Button(role: .none) {
+                                book.bookStatus = .finished
                             } label: {
                                 Image(systemName: "checkmark.circle.fill")
                                     .imageScale(.large)
