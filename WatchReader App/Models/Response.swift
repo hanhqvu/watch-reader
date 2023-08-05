@@ -16,13 +16,13 @@ struct BookRes: Codable, Identifiable {
         case title = "title"
         case id = "key"
         case imageKey = "cover_edition_key"
-        case author = "author_name"
+        case authors = "author_name"
     }
     
     var id: String
     var title: String
     var imageKey: String?
-    var author: [String]?
+    var authors: [String]?
     var listStatus: ListStatus = .none
 }
 

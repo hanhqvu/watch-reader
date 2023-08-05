@@ -60,7 +60,7 @@ extension StorageProvider {
         book.bookStatus = .reading
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
-        bookToAdd.author?.forEach { author in
+        bookToAdd.authors?.forEach { author in
             var authorToAdd: Author
             if (!getAuthorWithNameOf(author, context: context).isEmpty) {
                 authorToAdd = getAuthorWithNameOf(author, context: context)[0]

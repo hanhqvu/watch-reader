@@ -25,7 +25,7 @@ struct SearchItemView: View {
                     .font(.custom("Baskerville", size: 14, relativeTo: .headline))
                     .frame(alignment: .leading)
                     .foregroundColor(.black)
-                Text("\(bookRes.author?[0] ?? "")")
+                Text("\(bookRes.authors?[0] ?? "")")
                     .font(.custom("Baskerville", size: 10, relativeTo: .subheadline))
                     .frame(alignment: .leading)
                     .foregroundColor(.black)
