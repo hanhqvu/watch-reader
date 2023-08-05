@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CurrentListView: View {
-    @State var bookList: [Book] = []
+    @FetchRequest(fetchRequest: Book.booksByRating)
+    var bookList: FetchedResults<Book>
     @State private var showSearch: Bool = false
     
     var body: some View {
-        BookListView(bookList: $bookList)
+//        BookListView(bookList: $bookList)
+        List {
+            ForEach(bookList, id: \.self) { book in
+                Text(book.title ?? "")
+            }
+        }
             .sheet(isPresented: $showSearch) {
                 SearchView(showSearch: $showSearch)
             }
