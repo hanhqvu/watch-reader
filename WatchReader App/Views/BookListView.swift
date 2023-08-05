@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookListView: View {
-    @Binding var bookList: [Book]
+    @Binding var bookList: [BookEntity]
     @State var showDetail: Bool = false
     
     var body: some View {
@@ -16,7 +16,7 @@ struct BookListView: View {
                 if (!bookList.isEmpty) {
                     ForEach(0..<bookList.count, id: \.self) { index in
                         NavigationLink(destination: DetailView(book: $bookList[index])) {
-                            BookItemView(title: bookList[index].title, key: bookList[index].imageKey)
+                            BookItemView(title: bookList[index].title!, key: bookList[index].imageKey!)
                                 .swipeActions(edge: .trailing) {
                                     Button(role: .destructive) {
                                         bookList.remove(at: index)

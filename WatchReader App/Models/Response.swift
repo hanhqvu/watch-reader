@@ -35,12 +35,3 @@ enum Status: String {
     case finished = "Finshed"
     case abandoned = "Abandoned"
 }
-
-struct Book {
-    let id: String
-    let title: String
-    let author: [String]
-    let imageKey: String
-    var status: Status
-    var rating: Int?
-}

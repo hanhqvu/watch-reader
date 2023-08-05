@@ -43,3 +43,16 @@ extension BookEntity {
         }
     }
 }
+
+extension BookEntity {
+    var ratingInt: Int? {
+        get {
+            return Int(self.rating)
+        }
+        
+        set {
+            guard let newValue = newValue else { return }
+            self.rating = Int16(newValue)
+        }
+    }
+}
