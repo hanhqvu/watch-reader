@@ -58,7 +58,7 @@ extension Book {
 
 extension Book {
     // fetch request with different sort
-    static var readingBooksByProgress: NSFetchRequest<Book> = {
+    static var readingByProgress: NSFetchRequest<Book> = {
         let request: NSFetchRequest<Book> = Book.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Book.progress, ascending: false)]
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), "Reading"])

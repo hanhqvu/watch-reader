@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C90A808028AE545B00931E40 /* WatchReader WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C90A807F28AE545B00931E40 /* WatchReader WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C9524BFC2A79042000D19628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9524BEC2A79042000D19628 /* Assets.xcassets */; };
-		C9524BFD2A79042000D19628 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BEE2A79042000D19628 /* BookListView.swift */; };
 		C9524BFE2A79042000D19628 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BEF2A79042000D19628 /* DetailView.swift */; };
 		C9524BFF2A79042000D19628 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF02A79042000D19628 /* SearchView.swift */; };
 		C9524C002A79042000D19628 /* SearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF12A79042000D19628 /* SearchItemView.swift */; };
@@ -54,7 +53,6 @@
 		C90A807B28AE545B00931E40 /* WatchReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90A807F28AE545B00931E40 /* WatchReader WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchReader WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9524BEC2A79042000D19628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C9524BEE2A79042000D19628 /* BookListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		C9524BEF2A79042000D19628 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		C9524BF02A79042000D19628 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C9524BF12A79042000D19628 /* SearchItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemView.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 		C9524BED2A79042000D19628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C9524BEE2A79042000D19628 /* BookListView.swift */,
 				C9524BEF2A79042000D19628 /* DetailView.swift */,
 				C9524BF12A79042000D19628 /* SearchItemView.swift */,
 				C9524BF22A79042000D19628 /* BookItemView.swift */,
@@ -295,7 +292,6 @@
 				C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */,
 				C9524BFF2A79042000D19628 /* SearchView.swift in Sources */,
 				C9524C032A79042000D19628 /* Response.swift in Sources */,
-				C9524BFD2A79042000D19628 /* BookListView.swift in Sources */,
 				C9524C012A79042000D19628 /* BookItemView.swift in Sources */,
 				C9524C002A79042000D19628 /* SearchItemView.swift in Sources */,
 			);
