@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum ListStatus {
+    case added, pending, none
+}
+
 struct BookRes: Codable {
     enum CodingKeys: String, CodingKey {
         case title = "title"
@@ -19,6 +23,7 @@ struct BookRes: Codable {
     var title: String
     var imageKey: String?
     var author: [String]?
+    var listStatus: ListStatus = .none
 }
 
 struct SearchRes: Codable {

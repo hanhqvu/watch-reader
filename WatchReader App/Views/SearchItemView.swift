@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum ListStatus {
-    case added, pending, none
-}
-
 struct SearchItemView: View {
     @State var bookRes: BookRes
     @State var listStatus: ListStatus
