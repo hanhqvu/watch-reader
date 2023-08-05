@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchView: View {
     @StateObject var searchViewModel = SearchViewModel()
     @Binding var showSearch: Bool
+    @FetchRequest(fetchRequest: BookEntity.booksByRating)
+    var bookList: FetchedResults<BookEntity>
     
     var body: some View {
             List {
@@ -18,10 +20,9 @@ struct SearchView: View {
                 } else {
                     ForEach(0..<searchViewModel.searchResult.count, id: \.self) { index in
                         let currentBook = searchViewModel.searchResult[index]
-                        SearchItemView(bookRes: currentBook, bookList: $searchViewModel.bookList)
-                            .onTapGesture {
-                                searchViewModel.addBook(currentBook)
-                            }
+                        let isAdded = bookList.contains(where: { $0.title == currentBook.title })
+                        let listStatus: ListStatus = isAdded ? .added : .none
+                        SearchItemView(bookRes: currentBook, listStatus: listStatus)
                     }
                     .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
                 }
@@ -30,7 +31,6 @@ struct SearchView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         searchViewModel.complete()
-                        searchViewModel.dismiss()
                         showSearch.toggle()
                     }
                 }
@@ -45,7 +45,6 @@ struct SearchView: View {
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Dismiss") {
-                        searchViewModel.dismiss()
                         showSearch.toggle()
                     }
                 }
