@@ -15,7 +15,7 @@ struct WatchReaderApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                CurrentListView()
+                WatchReaderTabView()
                     .environment(\.managedObjectContext, viewContext)
             }
             .onChange(of: scenePhase) { _ in
