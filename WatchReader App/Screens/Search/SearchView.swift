@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject var searchViewModel = SearchViewModel()
+    @StateObject var viewModel = SearchViewModel()
     @Binding var showSearch: Bool
     
     var body: some View {
         List {
-            if (searchViewModel.isLoading) {
+            if (viewModel.isLoading) {
                 ProgressView("Loading")
             } else {
-                ForEach($searchViewModel.searchResult) { $result in
+                ForEach($viewModel.searchResult) { $result in
                     SearchItemView(bookRes: $result)
                         .onChange(of: result.listStatus) { newStatus in
                             if (newStatus == .pending) {
-                                searchViewModel.newBooks.append(searchViewModel.addBook(result))
+                                viewModel.newBooks.append(viewModel.addBook(result))
                             } else {
-                                guard let newBook = searchViewModel.newBooks.first(where: { $0.title == result.title}) else { return }
-                                searchViewModel.removeBook(newBook)
+                                guard let newBook = viewModel.newBooks.first(where: { $0.title == result.title}) else { return }
+                                viewModel.removeBook(newBook)
                             }
                         }
                 }
@@ -33,16 +33,16 @@ struct SearchView: View {
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done") {
-                    searchViewModel.complete()
+                    viewModel.complete()
                     showSearch.toggle()
                 }
             }
             ToolbarItem(placement: .primaryAction) {
-                TextField("Search with title", text: $searchViewModel.keyword) {
+                TextField("Search with title", text: $viewModel.keyword) {
                 }
                 .onSubmit {
                     Task {
-                        await searchViewModel.getSearchResults()
+                        await viewModel.getSearchResults()
                     }
                 }
             }
