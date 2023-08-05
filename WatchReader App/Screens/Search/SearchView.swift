@@ -12,40 +12,48 @@ struct SearchView: View {
     @Binding var showSearch: Bool
     
     var body: some View {
-            List {
-                if (searchViewModel.isLoading) {
-                    ProgressView("Loading")
-                } else {
-                    ForEach($searchViewModel.searchResult) { $result in
-                        SearchItemView(bookRes: $result)
-                    }
-                    .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        searchViewModel.complete()
-                        showSearch.toggle()
-                    }
-                }
-                ToolbarItem(placement: .primaryAction) {
-                    TextField("Search with title", text: $searchViewModel.keyword) {
-                    }
-                    .onSubmit {
-                        Task {
-                            await searchViewModel.getSearchResults()
+        List {
+            if (searchViewModel.isLoading) {
+                ProgressView("Loading")
+            } else {
+                ForEach($searchViewModel.searchResult) { $result in
+                    SearchItemView(bookRes: $result)
+                        .onChange(of: result.listStatus) { newStatus in
+                            if (newStatus == .pending) {
+                                searchViewModel.newBooks.append(searchViewModel.addBook(result))
+                            } else {
+                                guard let newBook = searchViewModel.newBooks.first(where: { $0.title == result.title}) else { return }
+                                searchViewModel.removeBook(newBook)
+                            }
                         }
-                    }
                 }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Dismiss") {
-                        showSearch.toggle()
+                .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") {
+                    searchViewModel.complete()
+                    showSearch.toggle()
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                TextField("Search with title", text: $searchViewModel.keyword) {
+                }
+                .onSubmit {
+                    Task {
+                        await searchViewModel.getSearchResults()
                     }
                 }
             }
-            .listStyle(.carousel)
-            .navigationTitle("Search")
-            .navigationViewStyle(.stack)
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Dismiss") {
+                    showSearch.toggle()
+                }
+            }
+        }
+        .listStyle(.carousel)
+        .navigationTitle("Search")
+        .navigationViewStyle(.stack)
     }
 }

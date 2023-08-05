@@ -13,6 +13,7 @@ final class SearchViewModel: ObservableObject {
     @Published var keyword: String = ""
     @Published var searchResult: [BookRes] = []
     @Published var isLoading: Bool = false
+    var newBooks: [BookEntity] = []
     let storageProvider = StorageProvider.shared
     let viewContext: NSManagedObjectContext
     let searchContext: NSManagedObjectContext
@@ -29,20 +30,24 @@ final class SearchViewModel: ObservableObject {
         book.status = "Reading"
         book.imageKey = bookToAdd.imageKey
         book.summary = bookToAdd.title
-        book.authorArray = []
         bookToAdd.author?.forEach { author in
             let authorToAdd = Author(context: searchContext)
             authorToAdd.name = author
-            book.authorArray.append(authorToAdd)
+            book.addToAuthors(authorToAdd)
         }
         return book
     }
     
     func removeBook(_ addedBook: BookEntity) {
+        addedBook.authorArray.forEach { author in
+            author.removeFromBooks(addedBook)
+        }
         searchContext.delete(addedBook)
+        print("removed")
     }
     
     func complete() {
+        print(searchContext.insertedObjects)
         do {
             try searchContext.save()
             print("Books saved succesfully")
