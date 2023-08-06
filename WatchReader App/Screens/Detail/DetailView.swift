@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State var book: Book
+    var book: Book
+    @ObservedObject var viewModel: DetailViewModel
+    
+    init(book: Book) {
+        self.book = book
+        self.viewModel = DetailViewModel(sourceBook: book)
+    }
     
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(book.imageKey!)-L.jpg"))  { image in
+                AsyncImage(url: URL(string: "https://covers.openlibrary.org/b/olid/\(viewModel.book.imageKey!)-L.jpg"))  { image in
                     image
                         .resizable()
                         .scaledToFit()
@@ -22,15 +28,15 @@ struct DetailView: View {
                             .frame(width: 60, height: 120, alignment: .leading)
                     }
                     .frame(maxWidth: 60, maxHeight: 120, alignment: .leading)
-                Text(book.title!)
+                Text(viewModel.book.title!)
                     .font(.custom("Baskerville", size: 20, relativeTo: .headline))
                     .frame(alignment: .leading)
-                ForEach(book.authorArray, id: \.self) { author in
+                ForEach(viewModel.book.authorArray, id: \.self) { author in
                     //force unwrap as name is a required attributes
                     Text(author.name!)
                 }
                 .font(.custom("Baskerville", size: 16, relativeTo: .subheadline))
-                RatingView(rating: $book.ratingInt)
+                RatingView(rating: $viewModel.book.ratingInt)
             }
         }
     }
