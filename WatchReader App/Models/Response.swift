@@ -32,6 +32,6 @@ struct SearchRes: Codable {
 
 enum Status: String {
     case reading = "Reading"
-    case finished = "Finshed"
+    case finished = "Finished"
     case abandoned = "Abandoned"
 }
