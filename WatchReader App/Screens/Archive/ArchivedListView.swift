@@ -23,8 +23,6 @@ struct ArchivedListView: View {
                                 Image(systemName: "xmark.circle.fill")
                                     .imageScale(.large)
                             }
-                        }
-                        .swipeActions(edge: .leading) {
                             Button(role: .none) {
                                 book.bookStatus = .finished
                             } label: {
@@ -32,6 +30,15 @@ struct ArchivedListView: View {
                                     .imageScale(.large)
                             }
                             .tint(.green)
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button(role: .none) {
+                                book.bookStatus = .reading
+                            } label: {
+                                Image(systemName: "book.circle.fill")
+                                    .imageScale(.large)
+                            }
+                            .tint(.blue)
                         }
                 }
                 .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
