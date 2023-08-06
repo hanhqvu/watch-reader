@@ -69,8 +69,10 @@ extension Book {
     static var readByProgress: NSFetchRequest<Book> = {
         let request: NSFetchRequest<Book> = Book.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Book.progress, ascending: false)]
-        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), "Finshed"])
-        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), "Abandoned"])
+        let finishedPredicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), "Finished"])
+        let abandonedPredicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), "Abandoned"])
+        let finishedOrAbandoned = NSCompoundPredicate(orPredicateWithSubpredicates: [finishedPredicate, abandonedPredicate])
+        request.predicate = finishedOrAbandoned
         
         return request
     }()
