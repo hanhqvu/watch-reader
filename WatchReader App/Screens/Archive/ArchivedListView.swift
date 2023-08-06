@@ -12,9 +12,9 @@ struct ArchivedListView: View {
     var bookList: FetchedResults<Book>
     
     var body: some View {
-        List {
-            ForEach(bookList, id: \.self) { book in
-                NavigationLink(destination: DetailView(book: book)) {
+        NavigationStack {
+            List(bookList) { book in
+                NavigationLink(value: book) {
                     BookItemView(title: book.title!, key: book.imageKey!)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
@@ -43,8 +43,12 @@ struct ArchivedListView: View {
                 }
                 .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
             }
+            .listStyle(.carousel)
+            .navigationTitle("Archived")
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
+            }
         }
-        .listStyle(.carousel)
     }
 }
 
