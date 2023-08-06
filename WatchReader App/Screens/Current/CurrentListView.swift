@@ -13,9 +13,9 @@ struct CurrentListView: View {
     @State private var showSearch: Bool = false
     
     var body: some View {
-        List {
-            ForEach(bookList, id: \.self) { book in
-                NavigationLink(destination: DetailView(book: book)) {
+        NavigationStack {
+            List(bookList) { book in
+                NavigationLink(value: book) {
                     BookItemView(title: book.title!, key: book.imageKey!)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
@@ -37,18 +37,21 @@ struct CurrentListView: View {
                 }
                 .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
             }
+            .listStyle(.carousel)
+            .navigationTitle("Reading")
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
+            }
+            .toolbar{
+                Button(role: .none) {
+                    showSearch.toggle()
+                } label: {
+                    Label("Add book", systemImage: "plus")
+                }
+            }
         }
-        .listStyle(.carousel)
         .sheet(isPresented: $showSearch) {
             SearchView(showSearch: $showSearch)
-        }
-        .navigationTitle("Currently Reading")
-        .toolbar{
-            Button(role: .none) {
-                showSearch.toggle()
-            } label: {
-                Label("Add book", systemImage: "plus")
-            }
         }
     }
 }

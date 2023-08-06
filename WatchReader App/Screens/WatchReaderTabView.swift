@@ -10,19 +10,9 @@ import SwiftUI
 struct WatchReaderTabView: View {
     var body: some View {
         TabView {
-            NavigationStack {
-                ArchivedListView()
-                    .tabItem {
-                        Label("Read", systemImage: "archivebox.fill")
-                    }
-            }
-            NavigationStack {
-                CurrentListView()
-                    .tabItem {
-                        Label("Read", systemImage: "book.fill")
-                    }
-            }
-        }.tabViewStyle(.page)
+            ArchivedListView()
+            CurrentListView()
+        }
     }
 }
 
