@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    var book: Book
-    @ObservedObject var viewModel: DetailViewModel
-    
-    init(book: Book) {
-        self.book = book
-        self.viewModel = DetailViewModel(sourceBook: book)
-    }
+    @StateObject var viewModel: DetailViewModel
     
     var body: some View {
         ScrollView {

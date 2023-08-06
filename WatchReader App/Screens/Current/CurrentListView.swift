@@ -40,7 +40,7 @@ struct CurrentListView: View {
             .listStyle(.carousel)
             .navigationTitle("Reading")
             .navigationDestination(for: Book.self) { book in
-                DetailView(book: book)
+                DetailView(viewModel: DetailViewModel(sourceBook: book))
             }
             .toolbar{
                 Button(role: .none) {

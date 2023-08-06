@@ -46,7 +46,7 @@ struct ArchivedListView: View {
             .listStyle(.carousel)
             .navigationTitle("Archived")
             .navigationDestination(for: Book.self) { book in
-                DetailView(book: book)
+                DetailView(viewModel: DetailViewModel(sourceBook: book))
             }
         }
     }
