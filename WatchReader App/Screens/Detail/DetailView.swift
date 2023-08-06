@@ -36,6 +36,20 @@ struct DetailView: View {
                     Text(author.name!)
                 }
                 .font(.custom("Baskerville", size: 16, relativeTo: .subheadline))
+                Slider(
+                    value: $viewModel.book.progress,
+                    in: 0...100,
+                    step: 5
+                ) {
+                    Text("Progress")
+                } minimumValueLabel: {
+                    Text("0")
+                } maximumValueLabel: {
+                    Text("100")
+                }
+                Text("Progress: \(viewModel.book.progress, specifier: "%.0f")")
+                    .font(.custom("Baskerville", size: 20, relativeTo: .body))
+                    .frame(alignment: .leading)
                 RatingView(rating: $viewModel.book.ratingInt)
             }
         }
