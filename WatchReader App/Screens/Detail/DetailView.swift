@@ -26,8 +26,8 @@ struct DetailView: View {
                     .font(.custom("Baskerville", size: 20, relativeTo: .headline))
                     .frame(alignment: .leading)
                 ForEach(book.authorArray, id: \.self) { author in
-                    Text("\(author) ")
-                        
+                    //force unwrap as name is a required attributes
+                    Text(author.name!)
                 }
                 .font(.custom("Baskerville", size: 16, relativeTo: .subheadline))
                 RatingView(rating: $book.ratingInt)
