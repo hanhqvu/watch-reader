@@ -12,15 +12,13 @@ struct WatchReaderApp: App {
     let viewContext = StorageProvider.shared.persistentContainer.viewContext
     @Environment(\.scenePhase) var scenePhase
     
-    @SceneBuilder var body: some Scene {
+    var body: some Scene {
         WindowGroup {
-            NavigationView {
-                WatchReaderTabView()
-                    .environment(\.managedObjectContext, viewContext)
-            }
-            .onChange(of: scenePhase) { _ in
-                StorageProvider.shared.save()
-            }
+            WatchReaderTabView()
+                .environment(\.managedObjectContext, viewContext)
+                .onChange(of: scenePhase) { _ in
+                    StorageProvider.shared.save()
+                }
         }
     }
 }
