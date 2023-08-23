@@ -16,7 +16,7 @@ struct CurrentListView: View {
     var body: some View {
         NavigationStack {
             List(bookList) { book in
-                BookItemView(title: book.title!, key: book.imageKey!)
+                BookItemView(book: book)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
                             book.bookStatus = .abandoned
@@ -40,7 +40,6 @@ struct CurrentListView: View {
                     .sheet(isPresented: $showDetail) {
                         DetailView(viewModel: DetailViewModel(sourceBook: book), showDetail: $showDetail)
                     }
-                .listRowBackground(Color(red: 0.98, green: 0.929, blue: 0.804))
             }
             .listStyle(.carousel)
             .navigationTitle("Reading")
