@@ -21,6 +21,7 @@
 		C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D32A79D61500F12708 /* NetworkManager.swift */; };
 		C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D52A79DBBF00F12708 /* String+Ext.swift */; };
 		C971A9D82A79DEFF00F12708 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D72A79DEFF00F12708 /* SearchViewModel.swift */; };
+		C975B4032A964C2400777C87 /* ListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C975B4022A964C2400777C87 /* ListCollectionView.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
 		C9F96C4B2A7ED04A004AC999 /* ArchivedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F96C4A2A7ED04A004AC999 /* ArchivedListView.swift */; };
@@ -68,6 +69,7 @@
 		C971A9D32A79D61500F12708 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C971A9D52A79DBBF00F12708 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		C971A9D72A79DEFF00F12708 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		C975B4022A964C2400777C87 /* ListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionView.swift; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
 		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		C9F96C4A2A7ED04A004AC999 /* ArchivedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedListView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				C971A9D22A79D56E00F12708 /* Search */,
 				C971A9D12A79D55E00F12708 /* Current */,
 				C9F96C4C2A7ED0FB004AC999 /* WatchReaderTabView.swift */,
+				C975B4022A964C2400777C87 /* ListCollectionView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */,
 				C9524BFF2A79042000D19628 /* SearchView.swift in Sources */,
 				C9524C032A79042000D19628 /* Response.swift in Sources */,
+				C975B4032A964C2400777C87 /* ListCollectionView.swift in Sources */,
 				C9524C012A79042000D19628 /* BookItemView.swift in Sources */,
 				C9524C002A79042000D19628 /* SearchItemView.swift in Sources */,
 				C9F96C4D2A7ED0FB004AC999 /* WatchReaderTabView.swift in Sources */,
