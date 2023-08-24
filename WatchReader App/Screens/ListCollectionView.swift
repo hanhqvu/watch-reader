@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListCollectionView: View {
     let lists = Status.allCases
+    @State private var isSearchShown = false
     
     var body: some View {
         NavigationStack {
@@ -27,7 +28,7 @@ struct ListCollectionView: View {
                 ToolbarItemGroup {
                     HStack {
                         Button {
-                            print("Add")
+                            isSearchShown.toggle()
                         } label: {
                             Image(systemName: "plus.magnifyingglass")
                         }
@@ -41,6 +42,9 @@ struct ListCollectionView: View {
                         }
                     }
                 }
+            }
+            .sheet(isPresented: $isSearchShown) {
+                SearchView(showSearch: $isSearchShown)
             }
         }
     }
