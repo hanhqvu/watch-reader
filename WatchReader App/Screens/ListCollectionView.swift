@@ -21,7 +21,7 @@ struct ListCollectionView: View {
             }
             .navigationTitle("Reading")
             .navigationDestination(for: Status.self) { status in
-                
+                BookListView(status: status)
             }
             .toolbar {
                 ToolbarItemGroup {
