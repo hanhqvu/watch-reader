@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ListCollectionView: View {
-    let lists = ["Reading", "Finished", "Abandoned"]
+    let lists = Status.allCases
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(lists, id: \.self) { list in
-                    Text(list)
+                    Text(list.rawValue)
                 }
             }
             .navigationTitle("Reading")
