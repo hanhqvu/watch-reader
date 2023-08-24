@@ -15,7 +15,6 @@ struct BookListView: View {
     init(status: Status) {
         _bookList = FetchRequest<Book>(sortDescriptors: [], predicate: NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Book.status), status.rawValue]))
         self.title = status.rawValue
-        print(status)
     }
     
     var body: some View {
