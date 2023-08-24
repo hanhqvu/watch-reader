@@ -10,8 +10,7 @@ import SwiftUI
 struct WatchReaderTabView: View {
     var body: some View {
         TabView {
-            ArchivedListView()
-            CurrentListView()
+            ListCollectionView()
         }
     }
 }

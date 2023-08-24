@@ -16,7 +16,6 @@
 		C9524C022A79042000D19628 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF32A79042000D19628 /* RatingView.swift */; };
 		C9524C032A79042000D19628 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF42A79042000D19628 /* Response.swift */; };
 		C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF52A79042000D19628 /* WatchReaderApp.swift */; };
-		C9524C052A79042000D19628 /* CurrentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9524BF62A79042000D19628 /* CurrentListView.swift */; };
 		C971A9CF2A79689900F12708 /* Book+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9CE2A79689900F12708 /* Book+Ext.swift */; };
 		C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D32A79D61500F12708 /* NetworkManager.swift */; };
 		C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C971A9D52A79DBBF00F12708 /* String+Ext.swift */; };
@@ -24,7 +23,6 @@
 		C975B4032A964C2400777C87 /* ListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C975B4022A964C2400777C87 /* ListCollectionView.swift */; };
 		C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C39BFD2A791EB200B918DC /* WatchReader.xcdatamodeld */; };
 		C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C39C022A7920F800B918DC /* StorageProvider.swift */; };
-		C9F96C4B2A7ED04A004AC999 /* ArchivedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F96C4A2A7ED04A004AC999 /* ArchivedListView.swift */; };
 		C9F96C4D2A7ED0FB004AC999 /* WatchReaderTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F96C4C2A7ED0FB004AC999 /* WatchReaderTabView.swift */; };
 		C9F96C4F2A7F3E1E004AC999 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F96C4E2A7F3E1E004AC999 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +62,6 @@
 		C9524BF32A79042000D19628 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		C9524BF42A79042000D19628 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		C9524BF52A79042000D19628 /* WatchReaderApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchReaderApp.swift; sourceTree = "<group>"; };
-		C9524BF62A79042000D19628 /* CurrentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentListView.swift; sourceTree = "<group>"; };
 		C971A9CE2A79689900F12708 /* Book+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Ext.swift"; sourceTree = "<group>"; };
 		C971A9D32A79D61500F12708 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C971A9D52A79DBBF00F12708 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		C975B4022A964C2400777C87 /* ListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionView.swift; sourceTree = "<group>"; };
 		C9C39BFE2A791EB200B918DC /* WatchReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchReader.xcdatamodel; sourceTree = "<group>"; };
 		C9C39C022A7920F800B918DC /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
-		C9F96C4A2A7ED04A004AC999 /* ArchivedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedListView.swift; sourceTree = "<group>"; };
 		C9F96C4C2A7ED0FB004AC999 /* WatchReaderTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchReaderTabView.swift; sourceTree = "<group>"; };
 		C9F96C4E2A7F3E1E004AC999 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,21 +164,11 @@
 			isa = PBXGroup;
 			children = (
 				C9F96C492A7ECFDB004AC999 /* Detail */,
-				C9F96C482A7ECFCB004AC999 /* Archive */,
 				C971A9D22A79D56E00F12708 /* Search */,
-				C971A9D12A79D55E00F12708 /* Current */,
 				C9F96C4C2A7ED0FB004AC999 /* WatchReaderTabView.swift */,
 				C975B4022A964C2400777C87 /* ListCollectionView.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		C971A9D12A79D55E00F12708 /* Current */ = {
-			isa = PBXGroup;
-			children = (
-				C9524BF62A79042000D19628 /* CurrentListView.swift */,
-			);
-			path = Current;
 			sourceTree = "<group>";
 		};
 		C971A9D22A79D56E00F12708 /* Search */ = {
@@ -192,14 +178,6 @@
 				C971A9D72A79DEFF00F12708 /* SearchViewModel.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		C9F96C482A7ECFCB004AC999 /* Archive */ = {
-			isa = PBXGroup;
-			children = (
-				C9F96C4A2A7ED04A004AC999 /* ArchivedListView.swift */,
-			);
-			path = Archive;
 			sourceTree = "<group>";
 		};
 		C9F96C492A7ECFDB004AC999 /* Detail */ = {
@@ -313,12 +291,10 @@
 				C9C39BFF2A791EB200B918DC /* WatchReader.xcdatamodeld in Sources */,
 				C9C39C032A7920F800B918DC /* StorageProvider.swift in Sources */,
 				C971A9D42A79D61500F12708 /* NetworkManager.swift in Sources */,
-				C9524C052A79042000D19628 /* CurrentListView.swift in Sources */,
 				C9524C042A79042000D19628 /* WatchReaderApp.swift in Sources */,
 				C971A9D82A79DEFF00F12708 /* SearchViewModel.swift in Sources */,
 				C9524C022A79042000D19628 /* RatingView.swift in Sources */,
 				C9524BFE2A79042000D19628 /* DetailView.swift in Sources */,
-				C9F96C4B2A7ED04A004AC999 /* ArchivedListView.swift in Sources */,
 				C971A9D62A79DBBF00F12708 /* String+Ext.swift in Sources */,
 				C9524BFF2A79042000D19628 /* SearchView.swift in Sources */,
 				C9524C032A79042000D19628 /* Response.swift in Sources */,
