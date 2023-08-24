@@ -30,7 +30,7 @@ struct SearchRes: Codable {
     var docs: [BookRes]
 }
 
-enum Status: String {
+enum Status: String, CaseIterable {
     case reading = "Reading"
     case finished = "Finished"
     case abandoned = "Abandoned"
