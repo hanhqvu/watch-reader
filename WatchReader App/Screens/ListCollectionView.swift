@@ -14,10 +14,15 @@ struct ListCollectionView: View {
         NavigationStack {
             List {
                 ForEach(lists, id: \.self) { list in
-                    Text(list.rawValue)
+                    NavigationLink(value: list) {
+                        Text(list.rawValue)
+                    }
                 }
             }
             .navigationTitle("Reading")
+            .navigationDestination(for: Status.self) { status in
+                
+            }
             .toolbar {
                 ToolbarItemGroup {
                     HStack {
